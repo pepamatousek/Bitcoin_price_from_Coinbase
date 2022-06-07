@@ -5,7 +5,7 @@ import time
 url = "https://api.coinbase.com/v2/prices/spot?currency=EUR"
 sec = 7
 
-def main(url, sec):
+def main(url:str, sec:int) -> str:
     while True:
         coinbase = requests.get(url)
         to_json = coinbase.json()
