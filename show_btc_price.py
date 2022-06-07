@@ -2,7 +2,7 @@ import requests
 import time
 
 
-url = "https://api.coinbase.com/v2/prices/BTC-EUR/buy"
+url = "https://api.coinbase.com/v2/prices/spot?currency=EUR"
 sec = 7
 
 def main(url, sec):
