@@ -11,7 +11,7 @@ def main(url, sec):
         to_json = coinbase.json()
         price = to_json["data"]["amount"]
         currency = to_json["data"]["currency"]
-        print(f"Current bitcoin buy price from Coinbase is {price} {currency}")
+        print(f"Current bitcoin price from Coinbase is {price} {currency}")
         time.sleep(sec)
 
 
