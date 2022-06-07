@@ -1,29 +1,20 @@
 import requests
+import time
 
 
-from os import system
-from bs4 import BeautifulSoup
-from datetime import datetime
+url = "https://api.coinbase.com/v2/prices/BTC-EUR/buy"
+sec = 7
 
-
-url = "https://www.tradingview.com/chart/?symbol=BITSTAMP%3ABTCEUR"
-
-
-def main():
-    print(timer())
-
-
-def timer(): 
+def main(url, sec):
     while True:
-        sec = int(datetime.now().strftime("%S"))
-        sec_5 = sec % 5
-        if sec_5 == 0:
-            return True
+        coinbase = requests.get(url)
+        to_json = coinbase.json()
+        price = to_json["data"]["amount"]
+        currency = to_json["data"]["currency"]
+        print(f"Current bitcoin buy price from Coinbase is {price} {currency}")
+        time.sleep(sec)
 
-
-# if timer() == True:
-#     print("5s")
 
 if __name__ == "__main__":
-    main()
+    main(url, sec)
 
